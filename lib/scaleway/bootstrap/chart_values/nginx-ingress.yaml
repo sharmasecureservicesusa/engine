@@ -11,8 +11,6 @@ controller:
       maxUnavailable: 1
   autoscaling:
     enabled: true
-  publishService:
-    enabled: true
   service:
     # https://github.com/scaleway/scaleway-cloud-controller-manager/blob/master/docs/loadbalancer-annotations.md
     annotations:
@@ -23,3 +21,7 @@ controller:
       service.beta.kubernetes.io/scw-loadbalancer-health-check-type: tcp
       service.beta.kubernetes.io/scw-loadbalancer-use-hostname: "true"
     externalTrafficPolicy: "Local"
+
+defaultBackend:
+  enabled: true
+  name: default-backend
