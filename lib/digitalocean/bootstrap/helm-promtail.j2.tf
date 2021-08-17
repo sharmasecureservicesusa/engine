@@ -8,8 +8,8 @@ resource "helm_release" "promtail" {
   max_history = 50
 
   set {
-    name = "loki.serviceName"
-    value = "loki.logging.svc"
+    name = "config.lokiAddress"
+    value = "http://loki.logging.svc:3100/loki/api/v1/push"
   }
 
   # It's mandatory to get this class to ensure paused infra will behave properly on restore
